@@ -46,7 +46,7 @@ A lot of runtimes exist for excuting the language in various contexts including
   - GoodReference: [Modern Javascript tutorial][4]
   - GoodReference: [w3schools Javascript tutorial][3]
 
-[1]: (https://www.ecma-international.org/publications/standards/Ecma-262.htm)
-[2]: (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
-[3]: (https://www.w3schools.com/js/default.asp)
-[4]: (https://javascript.info/)
+[1]: https://www.ecma-international.org/publications/standards/Ecma-262.htm
+[2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+[3]: https://www.w3schools.com/js/default.asp
+[4]: https://javascript.info/
