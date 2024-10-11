@@ -6,11 +6,11 @@ The notes structures are as follows
 
 ```sh
 .
-├─html
-├─css
-├─javascript
-├─git_github
-└─cmd_bash
+├─/html
+├─/css
+├─/javascript
+├─/git_github
+└─/cmd_bash
 ```
 
 The named folder will contain the notes of the topic and will be linked with the other folders.
