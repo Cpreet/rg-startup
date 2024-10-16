@@ -46,10 +46,13 @@ function playFunc(choice) {
 	}
 }
 
-function computersChoiceAndDecisionFunc(choice) {
+function computerChoiceFunc() {
 	let computerChoice = Math.ceil(Math.random() * 3);
 	computerChoice = choiceObj[computerChoice]
+	return computerChoice;
+}
 
+function decisionFunc(choice, computerChoice) {
 	console.log("My choice is: " + choice)
 	console.log("Computer's choice is: " + computerChoice)
 	// Comparison of choices
@@ -86,6 +89,7 @@ else {
 while (intent == true) {
 	myChoice = playFunc(myChoice)
 	if (intent == true) {
-		computersChoiceAndDecisionFunc(myChoice)
+		let computerChoice = computerChoiceFunc()
+		decisionFunc(myChoice, computerChoice)
 	}
 }
