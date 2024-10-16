@@ -11,31 +11,25 @@ const choiceObj = {
 }
 
 
-let intent = true
-
 // a menu has to be displayed
 // with 2 options,
 // do you want to play ?
 // exit game ?
-console.group("Game Menu")
-console.log("Welcome to ROCK PAPER SCISSORS");
-console.log("1. Play the game");
-console.log("2. Exit game");
-console.groupEnd("Game Menu")
-let choice = prompt("please choose your number");
 
-if (choice == "1") {
-	intent = true
-}
-else {
-	intent = false
+function menuFunc(choice) {
+	console.group("Game Menu")
+	console.log("Welcome to ROCK PAPER SCISSORS");
+	console.log("1. Play the game");
+	console.log("2. Exit game");
+	console.groupEnd("Game Menu")
+	choice = prompt("please choose your number");
+	return choice;
 }
 
-// playing the game
-// User chooses a play
-// Computer chooses a play
-while (intent == true) {
-	let myChoice = "";
+function playFunc(choice) {
+	// playing the game
+	// User chooses a play
+	// Computer chooses a play
 	console.group("Play menu")
 	if (intent == true) {
 		console.log("Choose your play");
@@ -43,36 +37,59 @@ while (intent == true) {
 		console.log(`2. ${PAPER}`);
 		console.log(`3. ${SCISSORS}`);
 		console.log(`4. exit game`)
-		myChoice = prompt("Please select a number")
-		if (myChoice == "4") {
+		choice = prompt("Please select a number")
+		if (choice == "4") {
 			intent = false
-			break;
 		}
-		myChoice = choiceObj[myChoice]
+		console.groupEnd("Play menu")
+		return choice = choiceObj[choice]
 	}
-	console.groupEnd("Play menu")
+}
 
+function computerChoiceFunc() {
 	let computerChoice = Math.ceil(Math.random() * 3);
 	computerChoice = choiceObj[computerChoice]
+	return computerChoice;
+}
 
-	console.log("My choice is: " + myChoice)
+function decisionFunc(choice, computerChoice) {
+	console.log("My choice is: " + choice)
 	console.log("Computer's choice is: " + computerChoice)
 	// Comparison of choices
-	if (myChoice == computerChoice) {
+	if (choice == computerChoice) {
 		console.log("draw match")
-	} else if (myChoice == ROCK && computerChoice == SCISSORS) {
+	} else if (choice == ROCK && computerChoice == SCISSORS) {
 		console.log("You win!")
-	} else if (myChoice == ROCK && computerChoice == PAPER) {
+	} else if (choice == ROCK && computerChoice == PAPER) {
 		console.log("Computer wins!")
-	} else if (myChoice == PAPER && computerChoice == ROCK) {
+	} else if (choice == PAPER && computerChoice == ROCK) {
 		console.log("You win")
-	} else if (myChoice == PAPER && computerChoice == SCISSORS) {
+	} else if (choice == PAPER && computerChoice == SCISSORS) {
 		console.log("Computer wins!")
-	} else if (myChoice == SCISSORS && computerChoice == ROCK) {
+	} else if (choice == SCISSORS && computerChoice == ROCK) {
 		console.log("Computer wins!")
-	} else if (myChoice == SCISSORS && computerChoice == PAPER) {
+	} else if (choice == SCISSORS && computerChoice == PAPER) {
 		console.log("You win")
 	} else {
 		console.error("wrong choice")
+	}
+}
+
+
+let intent = true
+let myChoice = "";
+myChoice = menuFunc(myChoice)
+if (myChoice == "1") {
+	intent = true
+}
+else {
+	intent = false
+}
+
+while (intent == true) {
+	myChoice = playFunc(myChoice)
+	if (intent == true) {
+		let computerChoice = computerChoiceFunc()
+		decisionFunc(myChoice, computerChoice)
 	}
 }
